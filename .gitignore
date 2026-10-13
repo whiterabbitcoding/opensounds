@@ -39,3 +39,16 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Gradle / local module build output
+.gradle/
+modules/*/android/build/
+android/local.properties
+
+# build artefacts and logs
+*.apk
+*.aab
+build.log
+
+# local Claude Code state (project settings.json stays tracked)
+.claude/settings.local.json
