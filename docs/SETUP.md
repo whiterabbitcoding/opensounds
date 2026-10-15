@@ -97,6 +97,23 @@ What it does: installs deps if needed → `expo prebuild` if `android/` is missi
 
 The APK is a standalone release build (JS bundled, no dev server needed), signed with the debug keystore — fine for sideloading, not for the Play Store.
 
+## 4b. Signed release (for publishing)
+
+`build-apk.sh` signs with the shared debug key, which is fine for your own phone but not for distributing. `scripts/release.sh` signs with **your** key and produces a phone-only (arm64) APK plus a SHA-256 checksum in `dist/release/`:
+
+```bash
+keytool -genkeypair -keystore ~/.config/opensounds/release.keystore -alias opensounds \
+        -keyalg RSA -keysize 4096 -validity 36500          # once; keep it OUT of the repo
+printf 'OPENSOUNDS_KEYSTORE=%s\nOPENSOUNDS_KEY_ALIAS=opensounds\nOPENSOUNDS_STORE_PASSWORD=%s\n' \
+       ~/.config/opensounds/release.keystore '<password>' > ~/.config/opensounds/release.env
+chmod 600 ~/.config/opensounds/release.*
+
+scripts/release.sh               # build + verify the signature
+scripts/release.sh --publish     # …and create the GitHub release v<version> (bump "version" in app.json first)
+```
+
+**Back up the keystore.** Android only installs an update over an existing app if it's signed with the same key; lose it and every user has to uninstall and reinstall. Switching from a debug-signed build to a release-signed one also needs one uninstall. (`ARCHS=arm64-v8a,x86_64 scripts/release.sh` adds x86_64 for testing on an emulator.)
+
 ## 5. Install on your phone
 
 Pick one:

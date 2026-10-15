@@ -48,6 +48,7 @@ On an Arch/Manjaro box, `scripts/setup-server.sh --music-dir /path/to/music` ins
 | `scripts/setup-server.sh` | Arch only: installs Navidrome + Tailscale, writes config, enables services |
 | `scripts/build-apk.sh` | Typecheck → release APK in `dist/opensounds.apk` (`ARCHS=arm64-v8a` for a phone-only build) |
 | `scripts/emulator.sh` | Headless emulator: `create`, `start`, `stop`, `shot` (screenshot), `ui` (UI tree dump) |
+| `scripts/release.sh` | Release-key-signed arm64 APK + checksum; `--publish` creates the GitHub release (docs/SETUP.md §4b) |
 | `scripts/install.sh` | `adb install` + launch on a device/emulator |
 | `scripts/serve-apk.sh` | Serves `dist/` on your Tailscale IP only so the phone can download the APK |
 

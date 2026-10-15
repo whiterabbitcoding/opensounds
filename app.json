@@ -31,7 +31,8 @@
         }
       ],
       "expo-asset",
-      "expo-font"
+      "expo-font",
+      "./plugins/with-release-signing"
     ]
   }
 }
