@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Checks every prerequisite for building, testing and running Symposium and says what's missing.
+# Checks every prerequisite for building, testing and running OpenSounds and says what's missing.
 #   scripts/doctor.sh                      # dev machine + server reachable on localhost
-#   SYMPOSIUM_SERVER=http://100.x.y.z:4533 scripts/doctor.sh
+#   OPENSOUNDS_SERVER=http://100.x.y.z:4533 scripts/doctor.sh
 set -uo pipefail
 source "$(dirname "$0")/lib.sh"
 
@@ -31,7 +31,7 @@ echo; echo "== Server (Navidrome) =="
 if curl -fsS -m 5 "$SERVER_URL/rest/ping?f=json" 2>/dev/null | grep -q '"type":"navidrome"'; then
   ok "Navidrome answering at $SERVER_URL"
 else
-  bad "no Navidrome at $SERVER_URL (docs/SETUP.md §1; or set SYMPOSIUM_SERVER)"; need
+  bad "no Navidrome at $SERVER_URL (docs/SETUP.md §1; or set OPENSOUNDS_SERVER)"; need
 fi
 if command -v systemctl >/dev/null && systemctl list-unit-files navidrome.service >/dev/null 2>&1; then
   systemctl is-active --quiet navidrome && ok "navidrome.service active" || warn "navidrome.service not active"

@@ -1,4 +1,4 @@
-# Symposium — working notes for Claude
+# OpenSounds — working notes for Claude
 
 Android music player (Expo SDK 57 / RN 0.86, TypeScript) for a self-hosted Navidrome server over Tailscale. **Read `README.md` for features, `docs/SETUP.md` for environment, `docs/ARCHITECTURE.md` for design (player, radio algorithm, caching).** Expo-specific API rules are in `AGENTS.md` (fetch versioned docs before touching Expo APIs; use `npx expo install`).
 
@@ -6,7 +6,7 @@ Android music player (Expo SDK 57 / RN 0.86, TypeScript) for a self-hosted Navid
 
 ```bash
 scripts/doctor.sh                 # toolchain + Navidrome + Tailscale + device check
-scripts/build-apk.sh              # typecheck + gradle → dist/symposium.apk   (ARCHS=arm64-v8a for phone-only)
+scripts/build-apk.sh              # typecheck + gradle → dist/opensounds.apk   (ARCHS=arm64-v8a for phone-only)
 scripts/emulator.sh start|stop|shot|ui   # headless AVD "Symposium_Test"
 scripts/install.sh                # adb install + launch
 scripts/serve-apk.sh              # tailnet-only download link for the phone

@@ -1,11 +1,11 @@
-# Symposium
+# OpenSounds
 
 A lossless-first Android music player for a **self-hosted [Navidrome](https://www.navidrome.org/) server**, streamed to your phone over **[Tailscale](https://tailscale.com/)**. Built with Expo / React Native; talks plain Subsonic/OpenSubsonic, so it works against any compatible server.
 
 Goals: a clean, uncluttered UI; audiophile information when you want it; and discovery that doesn't rely on trustworthy genre tags.
 
 ```
- phone (Symposium) ──Tailscale/WireGuard──▶ home server: Navidrome ──▶ your music library
+ phone (OpenSounds) ──Tailscale/WireGuard──▶ home server: Navidrome ──▶ your music library
 ```
 
 ## Features
@@ -16,7 +16,7 @@ Goals: a clean, uncluttered UI; audiophile information when you want it; and dis
 - **Radio** — build an endless radio from any song, album or artist (or *Daily mix* from what you actually play) by crawling the **related-artist graph** rather than genre tags. Every radio is saved to *Library → Radios* and replays instantly. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#radio).
 - **Actions everywhere** — long-press / ⋮ on any song, album or artist: info, play next, queue, radio, star, add to playlist, go to artist/album.
 - **Audiophile extras** — format, sample rate, bit depth and bitrate on every track; optional stats overlay with **real network bytes** (native `TrafficStats`); streaming quality selector (original lossless, or MP3 320/192, Opus 128 transcoded by Navidrome for mobile data).
-- **Themes** — Symposium (gold), **Dathomir** (red/black/yellow/green), Tokyo Night, Dracula, Light.
+- **Themes** — Gold, **Dathomir** (red/black/yellow/green), Tokyo Night, Dracula, Light.
 - **Caching** — disk-cached artwork; library lists render instantly from cache and refresh in the background.
 
 ## Quick start
@@ -24,10 +24,10 @@ Goals: a clean, uncluttered UI; audiophile information when you want it; and dis
 You need a Navidrome server reachable from your phone (see **[docs/SETUP.md](docs/SETUP.md)** for the full walkthrough, including Tailscale).
 
 ```bash
-git clone <this repo> symposium && cd symposium
+git clone <this repo> opensounds && cd opensounds
 
 scripts/doctor.sh          # checks everything: toolchain, Navidrome, Tailscale, devices
-scripts/build-apk.sh       # → dist/symposium.apk  (npm install + prebuild + gradle, first run ~5 min)
+scripts/build-apk.sh       # → dist/opensounds.apk  (npm install + prebuild + gradle, first run ~5 min)
 
 # put it on a phone — pick one:
 scripts/install.sh                 # USB / wireless adb
@@ -46,7 +46,7 @@ On an Arch/Manjaro box, `scripts/setup-server.sh --music-dir /path/to/music` ins
 |---|---|
 | `scripts/doctor.sh` | Verifies Node, JDK 17, Android SDK, KVM, Navidrome reachability, Tailscale, attached devices |
 | `scripts/setup-server.sh` | Arch only: installs Navidrome + Tailscale, writes config, enables services |
-| `scripts/build-apk.sh` | Typecheck → release APK in `dist/symposium.apk` (`ARCHS=arm64-v8a` for a phone-only build) |
+| `scripts/build-apk.sh` | Typecheck → release APK in `dist/opensounds.apk` (`ARCHS=arm64-v8a` for a phone-only build) |
 | `scripts/emulator.sh` | Headless emulator: `create`, `start`, `stop`, `shot` (screenshot), `ui` (UI tree dump) |
 | `scripts/install.sh` | `adb install` + launch on a device/emulator |
 | `scripts/serve-apk.sh` | Serves `dist/` on your Tailscale IP only so the phone can download the APK |

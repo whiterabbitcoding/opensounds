@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-# Shared environment for the Symposium helper scripts. Source it; don't execute it.
+# Shared environment for the OpenSounds helper scripts. Source it; don't execute it.
 # Everything here is overridable via environment variables.
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -17,9 +17,9 @@ ADB="$ANDROID_HOME/platform-tools/adb"
 [ -x "$ADB" ] || ADB="$(command -v adb || true)"
 EMULATOR="$ANDROID_HOME/emulator/emulator"
 AVD_NAME="${AVD_NAME:-Symposium_Test}"
-APK_OUT="$ROOT/dist/symposium.apk"
+APK_OUT="$ROOT/dist/opensounds.apk"
 APP_ID="dev.goose.symposium"
-SERVER_URL="${SYMPOSIUM_SERVER:-http://localhost:4533}"
+SERVER_URL="${OPENSOUNDS_SERVER:-http://localhost:4533}"
 
 if [ -t 1 ]; then
   C_OK=$'\e[32m'; C_BAD=$'\e[31m'; C_WARN=$'\e[33m'; C_DIM=$'\e[2m'; C_OFF=$'\e[0m'

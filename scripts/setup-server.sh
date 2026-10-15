@@ -57,5 +57,5 @@ echo
 ok "server ready"
 echo "  1. Create the admin user:   http://localhost:4533   (first visit asks you to create it)"
 echo "  2. Phone: install the Tailscale app, sign in with the SAME account"
-echo "  3. In Symposium use server URL:  http://$IP:4533"
-echo "  4. Verify:  SYMPOSIUM_SERVER=http://$IP:4533 scripts/doctor.sh"
+echo "  3. In OpenSounds use server URL:  http://$IP:4533"
+echo "  4. Verify:  OPENSOUNDS_SERVER=http://$IP:4533 scripts/doctor.sh"

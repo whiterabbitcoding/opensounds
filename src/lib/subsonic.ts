@@ -26,7 +26,7 @@ async function buildAuth(s: Server) {
   // Subsonic token auth: t = md5(password + salt). One salt per session keeps media URLs stable (image/disk caching).
   const salt = Crypto.randomUUID().replace(/-/g, '').slice(0, 12);
   const t = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.MD5, s.password + salt);
-  return new URLSearchParams({ u: s.user, t, s: salt, v: '1.16.1', c: 'symposium' });
+  return new URLSearchParams({ u: s.user, t, s: salt, v: '1.16.1', c: 'opensounds' });
 }
 
 export async function loadServer() {

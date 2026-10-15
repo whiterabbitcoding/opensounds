@@ -28,8 +28,8 @@ case "${1:-}" in
   start)
     "$ADB" devices | grep -q '^emulator-' && { ok "emulator already running"; exit 0; }
     [ -x "$EMULATOR" ] || die "emulator binary missing"
-    nohup "$EMULATOR" -avd "$AVD_NAME" -no-window -no-audio -no-snapshot -gpu swiftshader_indirect >/tmp/symposium-emulator.log 2>&1 &
-    info "booting $AVD_NAME (log: /tmp/symposium-emulator.log)…"
+    nohup "$EMULATOR" -avd "$AVD_NAME" -no-window -no-audio -no-snapshot -gpu swiftshader_indirect >/tmp/opensounds-emulator.log 2>&1 &
+    info "booting $AVD_NAME (log: /tmp/opensounds-emulator.log)…"
     "$ADB" wait-for-device
     until [ "$("$ADB" shell getprop sys.boot_completed | tr -d '\r')" = 1 ]; do sleep 2; done
     # A locked user hides non-direct-boot-aware activities ("Activity class does not exist"); wait for unlock.
@@ -38,7 +38,7 @@ case "${1:-}" in
   stop)
     "$ADB" emu kill >/dev/null 2>&1 && ok "emulator stopped" || info "no emulator running" ;;
   shot)
-    out="${2:-/tmp/symposium-$(date +%H%M%S).png}"
+    out="${2:-/tmp/opensounds-$(date +%H%M%S).png}"
     "$ADB" exec-out screencap -p > "$out" && ok "$out" ;;
   ui)
     "$ADB" shell uiautomator dump /sdcard/ui.xml >/dev/null && "$ADB" exec-out cat /sdcard/ui.xml ;;

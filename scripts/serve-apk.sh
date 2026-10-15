@@ -9,5 +9,5 @@ command -v tailscale >/dev/null || die "tailscale not installed"
 IP=$(tailscale ip -4 2>/dev/null | head -1)
 [ -n "$IP" ] || die "tailscale not connected"
 ss -ltn sport = ":$PORT" 2>/dev/null | grep -q LISTEN && die "port $PORT already in use"
-ok "open on the phone (Tailscale on):  http://$IP:$PORT/symposium.apk"
+ok "open on the phone (Tailscale on):  http://$IP:$PORT/opensounds.apk"
 exec python3 -m http.server "$PORT" --bind "$IP" --directory "$ROOT/dist"

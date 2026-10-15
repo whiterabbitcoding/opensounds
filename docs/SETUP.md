@@ -1,6 +1,6 @@
 # Setup
 
-End to end: **music library → Navidrome (server) → Tailscale → Symposium (phone)**, plus the dev toolchain to build the app. Run `scripts/doctor.sh` at any point to see what's still missing.
+End to end: **music library → Navidrome (server) → Tailscale → OpenSounds (phone)**, plus the dev toolchain to build the app. Run `scripts/doctor.sh` at any point to see what's still missing.
 
 | § | Part | Where |
 |---|---|---|
@@ -46,7 +46,7 @@ sudo systemctl enable --now navidrome
 
 **Permissions gotcha:** Navidrome runs as its own `navidrome` user — it must be able to **read** the library (`sudo -u navidrome ls /path/to/music`). An empty library right after install is almost always this.
 
-**Radio quality:** Symposium's radio uses Navidrome's *similar artists/songs* (`getArtistInfo2`, `getSimilarSongs2`). On 0.63.2 this worked with no extra configuration. If radios come back thin, check Navidrome's *Agents* settings (Last.fm / Spotify / Deezer) in its docs; better external data → better radios. Radios degrade gracefully (genre/random top-up) when similarity data is sparse.
+**Radio quality:** OpenSounds's radio uses Navidrome's *similar artists/songs* (`getArtistInfo2`, `getSimilarSongs2`). On 0.63.2 this worked with no extra configuration. If radios come back thin, check Navidrome's *Agents* settings (Last.fm / Spotify / Deezer) in its docs; better external data → better radios. Radios degrade gracefully (genre/random top-up) when similarity data is sparse.
 
 Check it: `curl -s localhost:4533/rest/ping?f=json` → `"type":"navidrome"` (auth errors are fine; they prove it's alive).
 
@@ -93,7 +93,7 @@ scripts/build-apk.sh                    # arm64-v8a + x86_64 (phone + emulator),
 ARCHS=arm64-v8a scripts/build-apk.sh    # phone only, smaller & faster
 ```
 
-What it does: installs deps if needed → `expo prebuild` if `android/` is missing (it's generated and gitignored) → typecheck → `gradlew assembleRelease` → copies the result to `dist/symposium.apk`. First build ≈ 5 min (Gradle + NDK); rebuilds ≈ 15–30 s.
+What it does: installs deps if needed → `expo prebuild` if `android/` is missing (it's generated and gitignored) → typecheck → `gradlew assembleRelease` → copies the result to `dist/opensounds.apk`. First build ≈ 5 min (Gradle + NDK); rebuilds ≈ 15–30 s.
 
 The APK is a standalone release build (JS bundled, no dev server needed), signed with the debug keystore — fine for sideloading, not for the Play Store.
 
@@ -103,7 +103,7 @@ Pick one:
 
 **a) Download over Tailscale (no cable)**
 ```bash
-scripts/serve-apk.sh          # prints http://100.x.y.z:8099/symposium.apk, Ctrl-C to stop
+scripts/serve-apk.sh          # prints http://100.x.y.z:8099/opensounds.apk, Ctrl-C to stop
 ```
 On the phone (Tailscale connected): open the URL in the browser, download, open the file, allow *Install unknown apps* for that browser. If Play Protect warns about an unrecognised app, choose *Install anyway* (debug-signed). The server binds to the Tailscale IP only, not your LAN.
 
@@ -115,7 +115,7 @@ scripts/install.sh
 adb pair <ip:port>; adb connect <ip:port>; scripts/install.sh
 ```
 
-**c) Taildrop:** `tailscale file cp dist/symposium.apk <phone-name>:` then accept on the phone.
+**c) Taildrop:** `tailscale file cp dist/opensounds.apk <phone-name>:` then accept on the phone.
 
 Updating later: just install the new APK over the old one — same signing key, so login and settings survive.
 

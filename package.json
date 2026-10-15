@@ -1,5 +1,5 @@
 {
-  "name": "symposium",
+  "name": "opensounds",
   "version": "0.1.0",
   "main": "index.js",
   "dependencies": {
@@ -42,5 +42,5 @@
     "serve:apk": "scripts/serve-apk.sh"
   },
   "private": true,
-  "description": "Symposium \u2014 a lossless-first Android music player for a self-hosted Navidrome server, streamed over Tailscale."
+  "description": "OpenSounds \u2014 a lossless-first Android music player for a self-hosted Navidrome server, streamed over Tailscale."
 }

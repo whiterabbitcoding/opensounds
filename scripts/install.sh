@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs dist/symposium.apk on a connected device/emulator and launches it.
+# Installs dist/opensounds.apk on a connected device/emulator and launches it.
 #   scripts/install.sh [adb-serial]          # serial optional; first device otherwise
 # Wireless phone: `adb pair <ip:port>` then `adb connect <ip:port>` first (Developer options → Wireless debugging).
 set -euo pipefail

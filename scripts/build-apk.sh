@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds a standalone release APK → dist/symposium.apk (signed with the debug key: fine for sideloading).
+# Builds a standalone release APK → dist/opensounds.apk (signed with the debug key: fine for sideloading).
 #   scripts/build-apk.sh              # arm64 + x86_64 (phones and the emulator)
 #   ARCHS=arm64-v8a scripts/build-apk.sh   # phone only: ~half the size, faster
 set -euo pipefail

@@ -36,7 +36,7 @@ export default function TabsLayout() {
           </View>
         </View>
       )}>
-      <Tabs.Screen name="index" options={{ title: 'Symposium' }} />
+      <Tabs.Screen name="index" options={{ title: 'OpenSounds' }} />
       <Tabs.Screen name="library" options={{ title: 'Library' }} />
       <Tabs.Screen name="search" options={{ title: 'Search' }} />
       <Tabs.Screen name="settings" options={{ title: 'Settings' }} />
