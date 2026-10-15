@@ -19,6 +19,10 @@ Goals: a clean, uncluttered UI; audiophile information when you want it; and dis
 - **Themes** — Gold, **Dathomir** (red/black/yellow/green), Tokyo Night, Light.
 - **Caching** — disk-cached artwork; library lists render instantly from cache and refresh in the background.
 
+## Install
+
+Download the APK from the [latest release](https://github.com/whiterabbitcoding/opensounds/releases/latest) on your phone, allow installs from your browser, open it, and enter your Navidrome URL and login. (Android only; arm64 phones.) To build it yourself, see below.
+
 ## Quick start
 
 You need a Navidrome server reachable from your phone (see **[docs/SETUP.md](docs/SETUP.md)** for the full walkthrough, including Tailscale).
