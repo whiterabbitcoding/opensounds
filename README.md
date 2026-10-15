@@ -72,3 +72,7 @@ Proof of concept that's already pleasant to use daily. Known rough edges: no nat
 ## Privacy / security
 
 No credentials in the repo. Your server URL and login are stored on the phone in Android's encrypted secure storage. The app allows cleartext HTTP because it's meant for a Tailscale address (the WireGuard tunnel encrypts it); don't point it at a server over the open internet without TLS.
+
+## License
+
+[MIT](LICENSE). Not affiliated with Navidrome, Subsonic or Tailscale.

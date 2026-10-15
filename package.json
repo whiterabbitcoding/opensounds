@@ -42,5 +42,6 @@
     "serve:apk": "scripts/serve-apk.sh"
   },
   "private": true,
+  "license": "MIT",
   "description": "OpenSounds \u2014 a lossless-first Android music player for a self-hosted Navidrome server, streamed over Tailscale."
 }
