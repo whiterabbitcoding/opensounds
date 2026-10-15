@@ -3,7 +3,7 @@ import { useSyncExternalStore } from 'react';
 
 export type Quality = 'original' | 'mp3-320' | 'mp3-192' | 'opus-128';
 export type Settings = {
-  theme: 'symposium' | 'dathomir' | 'tokyo' | 'dracula' | 'light';
+  theme: 'symposium' | 'dathomir' | 'tokyo' | 'light';
   quality: Quality;
   showStats: boolean;
   statsDetail: 'compact' | 'full';

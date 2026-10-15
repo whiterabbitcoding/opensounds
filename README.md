@@ -16,7 +16,7 @@ Goals: a clean, uncluttered UI; audiophile information when you want it; and dis
 - **Radio** — build an endless radio from any song, album or artist (or *Daily mix* from what you actually play) by crawling the **related-artist graph** rather than genre tags. Every radio is saved to *Library → Radios* and replays instantly. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#radio).
 - **Actions everywhere** — long-press / ⋮ on any song, album or artist: info, play next, queue, radio, star, add to playlist, go to artist/album.
 - **Audiophile extras** — format, sample rate, bit depth and bitrate on every track; optional stats overlay with **real network bytes** (native `TrafficStats`); streaming quality selector (original lossless, or MP3 320/192, Opus 128 transcoded by Navidrome for mobile data).
-- **Themes** — Gold, **Dathomir** (red/black/yellow/green), Tokyo Night, Dracula, Light.
+- **Themes** — Gold, **Dathomir** (red/black/yellow/green), Tokyo Night, Light.
 - **Caching** — disk-cached artwork; library lists render instantly from cache and refresh in the background.
 
 ## Quick start
